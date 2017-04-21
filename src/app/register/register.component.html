@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Register</h1>
+      <form (submit)="onSubmit($event)">
+        <div class="form-group has-error">
+          <label class="control-label" for="registerEmail">Email address</label>
+          <input type="email" class="form-control" id="registerEmail" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="registerPassword">Password</label>
+          <input type="password" class="form-control" id="registerPassword" placeholder="Password">
+        </div>
+        <a routerLink="login">I am already a user, log me in!</a>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

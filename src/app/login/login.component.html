@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Login</h1>
+      <form name="loginForm" (submit)="onSubmit($event)">
+        <div class="form-group">
+          <label for="loginEmail">Login</label>
+          <input type="email" class="form-control" id="loginEmail" placeholder="Email" [(ngModel)]="loginEmailValue" name="loginEmail" (keyup)="onStartValidation()">
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" class="form-control" id="loginPassword" placeholder="Password" [(ngModel)]="passwordValue" name="loginPassword" (keyup)="onStartValidation()">
+        </div>
+        <button [disabled]="!userValid === true" type="submit" class="btn btn-default" routerLink="guess-number-game">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+

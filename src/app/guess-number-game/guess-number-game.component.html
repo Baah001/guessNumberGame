@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Please select a number between the range {{ minRange }} and {{ maxRange }}</h1>
+      <p>You have a total of 3 attempts to guess the correct number</p>
+      <input type="range" [min]="minRange" [max]="maxRange" [(ngModel)]="selectedNumber">
+      <hr>
+      <div class="col-md-6">
+        <button [disabled]="winner === true || selectedNumber === undefined || gameOver === true" type="button" class="btn btn-primary btn-lg btn-block" (click)="onAttempt()">Submit number</button>
+      </div>
+      <div class="col-md-6">
+        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="onRetry()">Retry</button>
+      </div>
+    </div>
+
+    <div *ngIf="message" class="col-md-6">
+      <h3>{{ message }}</h3>
+    </div>
+  </div>
+
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Your Selected number:</h3>
+        </div>
+        <div *ngIf="selectedNumber !== undefined; else SelectedNumber" class="panel-body">
+          {{selectedNumber}}
+        </div>
+        <ng-template #SelectedNumber>
+          <div class="panel-body">
+            Please select a number
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <app-guess-number-overview [secretNumber]="secretNumber" [myIndex]="i" [attempt]="attemptEl" *ngFor="let attemptEl of userGuesses; let i = index"></app-guess-number-overview>
+    </div>
+  </div>
+</div>
