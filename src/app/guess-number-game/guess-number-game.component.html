@@ -3,7 +3,7 @@
     <div class="col-md-6">
       <h1>Please select a number between the range {{ minRange }} and {{ maxRange }}</h1>
       <p>You have a total of 3 attempts to guess the correct number</p>
-      <input type="range" [min]="minRange" [max]="maxRange" [(ngModel)]="selectedNumber">
+      <input type="range" [min]="minRange" [max]="maxRange" [(ngModel)]="selectedNumber" id="guessGameSlider">
       <hr>
       <div class="col-md-6">
         <button [disabled]="winner === true || selectedNumber === undefined || gameOver === true" type="button" class="btn btn-primary btn-lg btn-block" (click)="onAttempt()">Submit number</button>
@@ -31,7 +31,7 @@
           {{selectedNumber}}
         </div>
         <ng-template #SelectedNumber>
-          <div class="panel-body">
+          <div class="panel-body" id="panel-body">
             Please select a number
           </div>
         </ng-template>
